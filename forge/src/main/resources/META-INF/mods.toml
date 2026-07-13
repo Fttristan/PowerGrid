@@ -40,3 +40,10 @@ mandatory = true
 versionRange = "${create_forge_version}"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.powergrid]]
+modId = "computercraft"
+mandatory = false
+versionRange = "[${cct_version},)"
+ordering = "AFTER"
+side = "BOTH"

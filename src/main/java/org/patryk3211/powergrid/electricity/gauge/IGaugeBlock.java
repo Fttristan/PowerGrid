@@ -20,6 +20,20 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
+/**
+ * Shared behaviour for electric gauge blocks.
+ * <p>
+ * Gauge blocks expose a meter face that should only be rendered head-on from the correct viewing angle.
+ */
 public interface IGaugeBlock {
+    /**
+     * Determine whether the gauge head should be rendered for the given face.
+     *
+     * @param world The world the block is in.
+     * @param pos   The block position.
+     * @param state The block state.
+     * @param dir   The side being queried.
+     * @return {@code true} when the gauge head should be visible from this direction.
+     */
     boolean shouldRenderHeadOnFace(Level world, BlockPos pos, BlockState state, Direction dir);
 }

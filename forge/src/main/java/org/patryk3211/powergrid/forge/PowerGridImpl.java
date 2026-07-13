@@ -37,6 +37,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
@@ -52,6 +53,7 @@ import org.patryk3211.powergrid.collections.*;
 import org.patryk3211.powergrid.collections.forge.ModdedSoundEventsImpl;
 import org.patryk3211.powergrid.commands.PerformanceCommand;
 import org.patryk3211.powergrid.compat.cold_sweat.ColdSweatBridge;
+import org.patryk3211.powergrid.compat.computercraft.PowerGridComputerCraftCompat;
 import org.patryk3211.powergrid.compat.tfmg.TFMGBridge;
 import org.patryk3211.powergrid.compat.tfmg.TFMGProxyImpl;
 import org.patryk3211.powergrid.data.BlockTagProvider;
@@ -91,6 +93,10 @@ public class PowerGridImpl {
         if(Platform.isModLoaded("tfmg")) {
             TFMGBridge.init();
             ProxyProvider.add(TFMGProxy.class, new TFMGProxyImpl());
+        }
+
+        if (ModList.get().isLoaded("computercraft")) {
+            PowerGridComputerCraftCompat.init();
         }
 
         if (Platform.isModLoaded("cold_sweat")) {

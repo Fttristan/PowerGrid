@@ -28,6 +28,10 @@ allprojects {
 
 	repositories {
 		maven { url = "https://maven.parchmentmc.org" } // Parchment mappings
+			maven {
+				url = "https://maven.squiddev.cc"
+				content { includeGroup("cc.tweaked") }
+			} // CC: Tweaked
 
 		maven { url = "https://mvn.devos.one/releases" } // Porting Lib releases
 		maven { url = "https://mvn.devos.one/snapshots" } // Create and several dependencies
@@ -167,6 +171,7 @@ subprojects {
 				architectury_version : project.architectury_api_version,
 				create_forge_version : project.create_forge_range,
 				create_fabric_version: project.create_fabric_version,
+				cct_version          : project.cct_version,
 				forge_version        : project.forge_version,
 				forge_version_range	 : project.forge_version_range,
 				fabric_version       : project.fabric_version,

@@ -21,9 +21,27 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
+/**
+ * Adds tooltip information for an item or block that exposes electric properties.
+ * <p>
+ * Implementations are used by the Forge item tooltip integration to surface the same values that the matching block
+ * or item uses in-world.
+ */
 public interface IHaveElectricProperties {
+    /**
+     * Append electrical property details to the tooltip.
+     *
+     * @param stack   The stack being inspected.
+     * @param player  The player viewing the stack, or {@code null} when unavailable.
+     * @param tooltip The tooltip lines to append to.
+     */
     void appendProperties(ItemStack stack, Player player, List<Component> tooltip);
 
+    /**
+     * Whether the tooltip should always be shown, even when the item is not holding a modifier key.
+     *
+     * @return {@code true} if the tooltip should always be displayed.
+     */
     default boolean alwaysDisplay() {
         return false;
     }
