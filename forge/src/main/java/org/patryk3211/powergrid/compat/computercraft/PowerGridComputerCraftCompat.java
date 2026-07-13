@@ -128,7 +128,7 @@ public final class PowerGridComputerCraftCompat {
 
         @LuaFunction(mainThread = true)
         public final String getUnit() {
-            return target().getUnit().component().getString();
+            return target().getUnit().string();
         }
     }
 
